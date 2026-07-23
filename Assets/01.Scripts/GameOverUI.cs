@@ -19,6 +19,7 @@ public class GameOverUI : MonoBehaviour
         scoreText.text = score.ToString();
         RankingManager.AddScore((int)score);
         rankingText.text = RankingManager.GetRankingText();
+        Time.timeScale = 0f;
     }
 
     public void OnClickRestart()

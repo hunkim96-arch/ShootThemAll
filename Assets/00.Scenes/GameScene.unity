@@ -1825,6 +1825,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   revivePostion: {fileID: 1582856858}
   lifeCount: 3
+  maxLifeCount: 3
   gameOverUI: {fileID: 1180751554}
   stageClearUI: {fileID: 1932661895}
 --- !u!4 &1229460655
@@ -2075,11 +2076,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31567ce08c97ca54f842553c0c2f5965, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  moveSpeed: 5
+  moveSpeed: 7
   maxHp: 1
-  immortalTime: 0
+  immortalTime: 2
   bombCount: 10
   bombCooldown: 5
+  maxBombCount: 10
 --- !u!212 &1373350007
 SpriteRenderer:
   serializedVersion: 2
@@ -2170,7 +2172,7 @@ MonoBehaviour:
   firePostion: {fileID: 1493391013}
   bullet: {fileID: 7254220985285495502, guid: 349b67aacb358bb4283d661baa97b39c, type: 3}
   attackDelay: 0.2
-  level: 1
+  level: 0
 --- !u!114 &1373350010
 MonoBehaviour:
   m_ObjectHideFlags: 0

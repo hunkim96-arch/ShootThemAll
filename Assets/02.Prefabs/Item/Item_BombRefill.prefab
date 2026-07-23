@@ -119,7 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bb68f5fd6b570e4ca9a482a0146820a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BombRefillEffect
-  amount: 2
+  amount: 1
 --- !u!61 &4189745418358233928
 BoxCollider2D:
   m_ObjectHideFlags: 0

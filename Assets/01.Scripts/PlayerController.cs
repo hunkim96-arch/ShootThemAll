@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float immortalTime = 2.5f;   // 부활 시 기본 무적 시간
     [SerializeField] int bombCount = 3;
     [SerializeField] float bombCooldown = 5f;
+    [SerializeField] int maxBombCount = 10;
     float nextBombTime;
 
     Bomb bomb;
@@ -188,6 +189,7 @@ public class PlayerController : MonoBehaviour
     public void AddBomb(int amount)
     {
         bombCount += amount;
+        bombCount = Mathf.Clamp(bombCount, 0, maxBombCount);
         UIManager.instance.SetBombText(bombCount.ToString());
     }
 }

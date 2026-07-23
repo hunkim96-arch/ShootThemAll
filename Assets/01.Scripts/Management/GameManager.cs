@@ -13,10 +13,14 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] Transform revivePostion;
     [SerializeField] int lifeCount=3;
+    [SerializeField] int maxLifeCount = 3;
+
     [SerializeField] GameOverUI gameOverUI;
     [SerializeField] StageClearUI stageClearUI;
 
     int nowLife;
+
+    bool isGameOver = false;
 
     private void Awake()
     {
@@ -36,6 +40,8 @@ public class GameManager : MonoBehaviour
 
     public void ReducePlayerLife()
     {
+        if (isGameOver) return;
+
         if(nowLife>0)
         {
             nowLife--;
@@ -48,7 +54,9 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            isGameOver = true;
             EnemySpawner.instance.StopSpawning();
+            player.gameObject.SetActive(false);
             gameOverUI.Show(score);
             // 이어하기? 
         }
@@ -57,6 +65,7 @@ public class GameManager : MonoBehaviour
     public void AddLife()
     {
         nowLife++;
+        nowLife = Mathf.Clamp(nowLife, 0, maxLifeCount);
         UIManager.instance.SetLifeText(nowLife.ToString());
     }
 
