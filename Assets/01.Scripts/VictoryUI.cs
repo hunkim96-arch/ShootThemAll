@@ -22,6 +22,8 @@ public class VictoryUI : MonoBehaviour
 
     public void OnClickLobby()
     {
+        Time.timeScale = 1f;
+        SoundManager.instance.PlaySFX("UI_Button_Click");
         SceneManager.LoadScene("LobbyScene");
     }
 

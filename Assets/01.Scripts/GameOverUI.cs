@@ -5,8 +5,7 @@ using TMPro;
 public class GameOverUI : MonoBehaviour
 {
     [SerializeField] GameObject panel;
-    [SerializeField] TextMeshProUGUI scoreText;
-    [SerializeField] TextMeshProUGUI rankingText;
+    [SerializeField] TextMeshProUGUI titleText;
 
     void Awake()
     {
@@ -16,19 +15,22 @@ public class GameOverUI : MonoBehaviour
     public void Show(long score)
     {
         panel.SetActive(true);
-        scoreText.text = score.ToString();
+        titleText.text = "GAME OVER";
         RankingManager.AddScore((int)score);
-        rankingText.text = RankingManager.GetRankingText();
         Time.timeScale = 0f;
     }
 
     public void OnClickRestart()
     {
+        Time.timeScale = 1f;
+        SoundManager.instance.PlaySFX("UI_Button_Click");
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void OnClickLobby()
     {
+        Time.timeScale = 1f;
+        SoundManager.instance.PlaySFX("UI_Button_Click");
         SceneManager.LoadScene("LobbyScene");
     }
 }

@@ -57,6 +57,7 @@ public class PlayerAttack : MonoBehaviour
             }
         }
 
+        SoundManager.instance.PlaySFX("Player_Shoot");
         nextAttackTime = Time.time + attackDelay;
     }
 

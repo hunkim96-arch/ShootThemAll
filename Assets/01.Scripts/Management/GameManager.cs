@@ -34,8 +34,11 @@ public class GameManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        Time.timeScale = 1f;
         player = GameObject.Find("Player").GetComponent<PlayerController>();
         nowLife = lifeCount;
+        UIManager.instance.SetScoreText(score.ToString());
+        UIManager.instance.SetLifeText(nowLife.ToString());
     }
 
     public void ReducePlayerLife()

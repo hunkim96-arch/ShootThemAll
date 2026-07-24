@@ -5,7 +5,7 @@ using TMPro;
 public class StageClearUI : MonoBehaviour
 {
     [SerializeField] GameObject panel;
-    [SerializeField] TextMeshProUGUI scoreText;
+    [SerializeField] TextMeshProUGUI titleText;
     [SerializeField] Transform playerStartPosition;
 
     void Awake()
@@ -16,7 +16,7 @@ public class StageClearUI : MonoBehaviour
     public void Show(long score)
     {
         panel.SetActive(true);
-        scoreText.text = score.ToString();
+        titleText.text = "STAGE CLEAR";
         Time.timeScale = 0f;
     }
 
@@ -35,12 +35,14 @@ public class StageClearUI : MonoBehaviour
             player.transform.position = playerStartPosition.position;
         }
 
+        SoundManager.instance.PlaySFX("UI_Button_Click");
         StageManager.instance.GoToNextStage();
     }
 
 
     public void OnClickLobby()
     {
+        SoundManager.instance.PlaySFX("UI_Button_Click");
         SceneManager.LoadScene("LobbyScene");
     }
 }
